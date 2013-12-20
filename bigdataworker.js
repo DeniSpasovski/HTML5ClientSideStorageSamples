@@ -1,4 +1,4 @@
-﻿var recordsPerWorker = 5000;
+﻿var recordsPerWorker = 25000;
 var baseName = 'bigdata';
 var isFirefox = false;
 

@@ -1,7 +1,7 @@
 Indexed DB Samples
 ================
 
-This is a project contains tests for the IndexedDB API, separated into two test pages. The tests are written using the QUnit library. 
+The project contains unit tests and sample functions for the IndexedDB API, separated into two test pages. The tests are written using the QUnit library.
 
 First page 'IndexedDbSample' covers all the basic IndexedDB API functions:
 	create object store

@@ -35,7 +35,7 @@ $(document).ready(function () {
 		equal(_testObject.boolProperty, sampleObject.boolProperty, "bool property exist");
     });
 	
-	module("common error")
+	module("common error");
 	test("Store Object without serializing", function () {
         localStorage["testObjectError"] = sampleObject;
 		ok(localStorage["testObjectError"] , "Object stored in local storage");
@@ -46,4 +46,15 @@ $(document).ready(function () {
 			ok(true, "Error in de-serialization");
 		}
     });
+	
+	module("web worker access");
+	asyncTest("Check if local storage is accessible from web workers", 1, function () {
+		var oMyTask = new Worker("LocalStorageWorker.js");
+		oMyTask.onmessage = function(event){
+			equal(event.data, "undefined", "Local Storage is not available from worker");
+			oMyTask.terminate();
+			start();
+		};
+		oMyTask.postMessage({'testMessage': 'testWorker'});
+	});
 });

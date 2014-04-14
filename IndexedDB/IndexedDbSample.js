@@ -273,7 +273,7 @@ $(document).ready(function () {
 			
 			transaction.oncomplete = function (event) {
 				database.close();
-				equal(agregate.length, 0, "no items with with rank3 found")
+				equal(agregate.length, 0, "no items with with rank3 found");
 				ok(true, "Search completed");
 				agregate = null;
 				start();

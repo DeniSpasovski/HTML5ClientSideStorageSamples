@@ -1,8 +1,6 @@
-var isFirefox = false;
 var skipDelete = true; //use this when you want to delete the database
 
 $(document).ready(function () {
-	isFirefox = typeof InstallTrigger !== 'undefined';  
     module("big data");
 	var dbName = "bigdata";
 	var storeName = "testStore";
@@ -65,14 +63,9 @@ $(document).ready(function () {
 	var workerCount = 4;
 	var workerPopulated = 0;
 	function PopulteDB(){
-		if(isFirefox){
-			recordsPerWorker = recordsPerWorker * workerCount;
-			PopulateDBFromWorker(0, 0, firefoxDataLoaded);
-		} else {
-			for(var j=0;j<workerCount; j++)
-			{
-				CreateNewWorker(j);
-			}
+		for(var j=0;j<workerCount; j++)
+		{
+			CreateNewWorker(j);
 		}
 	}
 	
